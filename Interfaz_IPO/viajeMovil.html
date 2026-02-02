@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=430, initial-scale=1.0" />
+  <title>Modo Viaje - Vibras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Jost';
+      background: radial-gradient(circle at center, #24272C 30%, #1c1f23 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .mobile-wrapper {
+      max-width: 430px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+
+    .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  margin-top: 10px;
+  margin-left: -30px;
+}
+
+.back-button {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+    }
+
+    .highlight-v {
+      background: linear-gradient(90deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      font-size: 24px;
+      margin-top: 10px;
+    }
+
+    .app-name {
+      font-size: 25px;
+      font-weight: bold;
+      color: white;
+      
+    }
+
+    .main-section {
+      margin-top: 50px;
+    }
+
+    .plane-icon {
+      font-size: 50px;
+      background-color: #24272C;
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .welcome-text {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      margin-top: 20px;
+      font-size: 15px;
+      color: #ccc;
+      line-height: 1.4;
+    }
+
+    .location-button {
+      margin-top: 30px;
+      width: 90px;
+      height: 90px;
+      border: none;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      margin-left: 160px;
+    }
+
+    .location-button:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+  <div class="mobile-wrapper">
+    <div class="header" style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px; margin-left: -30px;">
+  <a href="prototipoMovil.html" style="display: flex; align-items: center; text-decoration: none;">
+  <img src="logo2.png" alt="Logo" class="logo">
+  <span class="app-name" style="color: white; margin-left: 10px;">
+    <span class="highlight-v">V</span>ibras
+  </span>
+</a>
+  <div class="right-group" style="display: flex; align-items: center; gap: 10px;">
+    <img src="dibujo-3.svg" alt="Usuario" class="user-icon" onclick="window.location.href='perfilMovil.html'" style="cursor: pointer; width: 36px; height: 36px;">
+    <div class="menu-wrapper" style="position: relative;">
+      <span class="menu-toggle" style="font-size: 32px; color: white; cursor: default;">⋮</span>
+      <div class="menu-dropdown" style="
+        display: none;
+        position: absolute;
+        top: 38px;
+        right: 0;
+        background: #2C2F32;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,.4);
+        z-index: 1000;
+        flex-direction: column;
+      ">
+        <button onclick="window.location.href='ayuda.html'" style="background: none; border: none; color: white; padding: 12px 16px; font-family: 'Jost'; text-align: left; cursor: pointer;">Ayuda</button>
+        <button onclick="window.location.href='configuracion.html'" style="background: none; border: none; color: white; padding: 12px 16px; font-family: 'Jost'; text-align: left; cursor: pointer;">Configuración</button>
+        <button onclick="window.location.href='loginMovil.html'" style="background: none; border: none; color: white; padding: 12px 16px; font-family: 'Jost'; text-align: left; cursor: pointer;">Cerrar sesión</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Botón volver debajo -->
+<div style="text-align: right; margin-top: 10px; margin-right:15px;">
+  <button onclick="window.history.back()" class="back-button">< Volver</button>
+</div>
+
+
+
+
+    <div class="main-section">
+      <div class="plane-icon">✈️</div>
+      <div class="welcome-text">¡Bienvenido/a a modo viaje!</div>
+      <div class="subtitle">
+        Pulsa para recibir recomendaciones musicales<br>
+        en base a tu ubicación en tiempo real:
+      </div>
+      <button class="location-button" onclick="window.location.href='viajeResultado.html'">📍</button>
+    </div>
+  </div>
+</body>
+</html>

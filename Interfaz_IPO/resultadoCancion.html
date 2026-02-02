@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=430, initial-scale=1.0" />
+  <title>Resultado canción - Vibras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Jost';
+      background: radial-gradient(circle at center, #24272C 30%, #1c1f23 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .mobile-wrapper {
+      max-width: 430px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    .logo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+      margin-top: 20px;
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: -10px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+    }
+
+    .highlight-v {
+      background: linear-gradient(90deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      font-size: 26px;
+      margin-top: 10px;
+    }
+
+    .app-name {
+      font-size: 22px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .back-button {
+      background-color: transparent;
+      border: 1px solid #fff;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .main-title {
+      font-size: 26px;
+      font-weight: bold;
+      margin: 60px 0 20px;
+    }
+
+    .message {
+      font-size: 15px;
+      color: #ccc;
+      margin-bottom: 40px;
+    }
+
+    .song-result {
+      margin-top: 20px;
+      background-color: #2C2F32;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    }
+
+    .song-cover {
+      width: 100%;
+      max-width: 200px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .song-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .song-artist {
+      font-size: 15px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="mobile-wrapper">
+    <div class="logo-header" style="display: flex; justify-content: space-between; align-items: center;">
+  <a href="prototipoMovil.html" style="display: flex; align-items: center; text-decoration: none;">
+  <img src="logo2.png" alt="Logo" class="logo">
+  <span class="app-name" style="color: white; margin-left: 10px;">
+    <span class="highlight-v">V</span>ibras
+  </span>
+</a>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <img src="dibujo-3.svg" alt="Usuario" class="user-icon"  style="cursor: pointer; width: 36px; height: 36px;">
+    <div class="menu-wrapper" style="position: relative;">
+      <span class="menu-toggle" style="font-size: 32px; color: white; cursor: default;">⋮</span>
+      <div class="menu-dropdown" style="
+        display: none;
+        position: absolute;
+        top: 38px;
+        right: 0;
+        background: #2C2F32;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,.4);
+        z-index: 1000;
+        flex-direction: column;
+      ">
+        <button onclick="window.location.href='ayuda.html'" style="background: none; border: none; color: white; padding: 12px 16px; font-family: 'Jost'; text-align: left; cursor: pointer;">Ayuda</button>
+        <button onclick="window.location.href='configuracion.html'" style="background: none; border: none; color: white; padding: 12px 16px; font-family: 'Jost'; text-align: left; cursor: pointer;">Configuración</button>
+        <button onclick="window.location.href='loginMovil.html'" style="background: none; border: none; color: white; padding: 12px 16px; font-family: 'Jost'; text-align: left; cursor: pointer;">Cerrar sesión</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Botón volver debajo del perfil y los 3 puntos -->
+<div style="text-align: right; margin-top: 10px;">
+  <button onclick="window.location.href='prototipoMovil.html'" style="
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    margin-right: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  ">< Volver</button>
+</div>
+
+    <div class="main-title">¡Canción detectada!</div>
+    <div class="message">Hemos identificado la música que está sonando a tu alrededor.</div>
+
+    <div class="song-result">
+  <img src="waa.png" alt="Portada canción" class="song-cover">
+  <div class="song-title">Wavin Flag</div>
+  
+  <!-- Botón para reproducir -->
+  <button id="btn-escuchar" style="
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+  ">▶ Escuchar canción</button>
+
+  <!-- Reproductor oculto -->
+  <audio id="audio-flag" src="FLAG.mp3"></audio>
+</div>
+
+  </div>
+
+
+  <script>
+  const btn = document.getElementById('btn-escuchar');
+  const audio = document.getElementById('audio-flag');
+
+  btn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      btn.textContent = '⏸ Pausar canción';
+    } else {
+      audio.pause();
+      btn.textContent = '▶ Escuchar canción';
+    }
+  });
+</script>
+</body>
+</html>

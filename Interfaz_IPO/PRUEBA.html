@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=430, initial-scale=1.0">
+  <title>Pantalla Móvil - Vibras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #1f2227;
+      font-family: 'Jost', sans-serif;
+    }
+
+    .pantalla {
+      display: none;
+    }
+
+    .pantalla.visible {
+      display: block;
+    }
+
+    .mobile-wrapper {
+      max-width: 430px;
+      margin: 0 auto;
+      background-color: #1f2227;
+    }
+
+    .header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #1f2227;
+      padding: 10px 15px;
+      margin-top: 20px;
+    }
+
+    .logo {
+      width: 36px;
+      height: 36px;
+    }
+
+    .app-name {
+      font-size: 26px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .highlight-v {
+      background: linear-gradient(90deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+    }
+
+    .user-icon {
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      opacity: 0.9;
+    }
+
+    .mood-section, .mood-section2 {
+      margin: 30px 20px;
+      padding-left: 20px;
+      padding-bottom: 15px;
+      background-color: #2a2d34;
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .mood-label {
+      color: white;
+      font-size: 16px;
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+
+    .mood-gradient {
+      background: linear-gradient(90deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+    }
+
+    .mood-inner-box {
+      background-color: #1f2227;
+      border-radius: 12px;
+      margin-right: 20px;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mood-inner-box-button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      background-color: #1f2227;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.2s;
+    }
+
+    .mood-inner-box-button:hover {
+      background-color: #4b4d55;
+    }
+
+    .circle-btn {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .mobile-button-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      max-width: 430px;
+      display: flex;
+      background-color: #1f2227;
+      z-index: 9999;
+      border-top: none;
+    }
+
+    .mobile-btn {
+      flex: 1;
+      height: 50px;
+      margin: 5px;
+      border-radius: 10px;
+      border: none;
+      background-color: #2c2c2e;
+      color: white;
+      font-size: 0.8em;
+    }
+
+    .mobile-btn.selected {
+      background-color: #1f2227;
+      border: 2px solid white;
+    }
+  </style>
+</head>
+<body>
+  <!-- Pantalla Inicio -->
+  <div id="pantalla-inicio" class="pantalla visible">
+    <div class="mobile-wrapper">
+      <div class="header-bar">
+        <div class="left-group">
+          <img src="logo2.png" alt="Logo" class="logo">
+          <span class="app-name"><span class="highlight-v">V</span>ibras</span>
+        </div>
+        <img src="dibujo-3.svg" alt="Usuario" class="user-icon">
+      </div>
+      <div class="mood-section">
+        <p class="mood-label mood-gradient">Recomendaciones respecto a tus emociones</p>
+        <div class="mood-inner-box">
+          <button class="mood-inner-box-button" onclick="window.location.href='mood.html'">
+            <div class="circle-btn">🧠</div>
+            <span>Analiza tu mood</span>
+          </button>
+        </div>
+      </div>
+      <div class="mood-section2">
+        <p class="mood-label">Recomendaciones respecto a tu ubicación</p>
+        <div class="mood-inner-box">
+          <button class="mood-inner-box-button" onclick="window.location.href='mood.html'">
+            <div class="circle-btn">✈️</div>
+            <span>Modo viaje</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pantalla Buscar -->
+  <div id="pantalla-buscar" class="pantalla">
+    <div class="mobile-wrapper">
+      <div class="header-bar">
+        <div class="left-group">
+          <img src="logo2.png" alt="Logo" class="logo">
+          <span class="app-name"><span class="highlight-v">V</span>ibras</span>
+        </div>
+        <img src="dibujo-3.svg" alt="Usuario" class="user-icon">
+      </div>
+      <div class="mood-section">
+        <p class="mood-label mood-gradient">Aquí estaría el buscador</p>
+        <div class="mood-inner-box">
+          <span style="color: white;">Contenido de busqueda</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="pantalla-chat" class="pantalla">
+    <div class="mobile-wrapper">
+      <!-- contenido para Chat -->
+    </div>
+  </div>
+  
+  <div id="pantalla-perfil" class="pantalla">
+    <div class="mobile-wrapper">
+      <!-- contenido para Perfil -->
+    </div>
+  </div>
+  
+
+  <!-- Barra de navegación -->
+  <div class="mobile-button-bar">
+    <button class="mobile-btn selected">
+      <img src="dibujo-1.svg" alt="Inicio" style="width: 25px; height: 25px;" />
+    </button>      
+    <button class="mobile-btn">
+      <img src="dibujo-2.svg" alt="Buscar" style="width: 25px; height: 25px;" />
+    </button>  
+    <button class="mobile-btn">
+      <img src="dibujo-5.svg" alt="Chat" style="width: 25px; height: 25px;" />
+    </button>  
+    <button class="mobile-btn">
+      <img src="dibujo-6.svg" alt="Perfil" style="width: 25px; height: 25px;" />
+    </button>  
+  </div>
+
+  <script>
+    const botones = document.querySelectorAll('.mobile-btn');
+    const pantallas = [
+      document.getElementById('pantalla-inicio'),
+      document.getElementById('pantalla-buscar'),
+      document.getElementById('pantalla-chat'),
+      document.getElementById('pantalla-perfil')
+    ];
+
+    function cambiarPantalla(index) {
+      pantallas.forEach((p, i) => {
+        p.classList.toggle('visible', i === index);
+      });
+      botones.forEach((b, i) => {
+        b.classList.toggle('selected', i === index);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+Para ejecutarlo desde la primera pantalla o pantalla de registro, hay que usar el comando ./loginMovil.html

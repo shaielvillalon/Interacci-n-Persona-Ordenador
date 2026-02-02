@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototipo: Vibras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --raisin-black: #24272C;
+      --background-claro: #363C49;
+      --text-color: #B4B4B4;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--raisin-black);
+      color: var(--text-color);
+      font-family: 'Jost', sans-serif;
+      display: flex;
+    }
+
+    /* Header */
+    .header {
+      background-color: var(--raisin-black);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      z-index: 1000;
+    }
+
+    .left-section, .center-section, .right-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .center-section {
+      margin-left: 200px;
+    }
+
+
+    .logo {
+      width: 70px;
+      height: 70px;
+    }
+
+    .header h1 {
+      font-size: 30px;
+      margin: 5px;
+      margin-top: 20px;
+    }
+
+    .icon {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      background-color: #2a2d34;
+      border-radius: 20px;
+      padding: 5px 10px;
+      border: 1px solid var(--text-color);
+    }
+
+    .search-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+
+    .search-input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: white;
+      font-family: 'Jost';
+      font-size: 16px;
+      width: 200px;
+    }
+
+    .highlight-mood {
+      background: linear-gradient(90deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+    }
+
+    /* Menu desplegable */
+    .menu-container {
+      position: relative;
+      margin-right: 50px;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background-color: var(--background-claro);
+      border: 1px solid var(--text-color);
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      width: 160px;
+      z-index: 999;
+    }
+
+    .menu-item {
+      padding: 12px 16px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .menu-item:hover {
+      background-color: #444;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      margin-left: 20px;
+      margin: 20px;
+      margin-bottom: 20px;
+      width: 240px;
+      background-color: #1f2227;
+      padding: 40px 20px;
+      height: 650px;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    .sidebar h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      margin-top: 80px;
+    }
+
+    .playlist-item {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .playlist-item:hover {
+      background-color: #2a2d34;
+    }
+
+    .playlist-thumb {
+      width: 40px;
+      height: 40px;
+      background-color: #444;
+      border-radius: 4px;
+      margin-right: 10px;
+    }
+
+    .playlist-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .playlist-title {
+      font-weight: 500;
+      color: white;
+    }
+
+    .playlist-subtitle {
+      font-size: 12px;
+      color: gray;
+    }
+
+    /* Main content */
+    .content {
+      margin-top: 100px;
+      margin-left: 10px;
+      padding: 20px;
+      width: 1160px;
+    }
+
+    .mood-button {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      gap: 15px;
+      font-size: 20px;
+      color: white;
+    }
+
+    .voice-hint {
+      position: absolute;
+      top: 125px; /* Aproximadamente a la altura de "Analiza tu mood" */
+      right: 40px;
+      color: #86EDD0;
+      font-size: 16px;
+      background-color: #2a2d34;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid #86EDD0;
+      box-shadow: 0 0 10px rgba(134, 237, 208, 0.3);
+    }
+    
+
+    .circle-btn {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .recommendation-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .box {
+      background-color: #2a2d34;
+      border: 1px solid #B4B4B4;
+      border-radius: 15px;
+      padding: 10px;
+      font-size: 18px;
+      color: white;
+      transition: 0.3s ease;
+      height: 100px; /* 🔵 Ahora más pequeño */
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    
+    
+    
+
+    .box:hover {
+      background-color: #343a40;
+    }
+
+    
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="left-section">
+      <img src="logo2.png" alt="Logo" class="logo">
+      <h1><span class="highlight-mood">V</span>ibras</h1>
+    </div>
+
+    <div class="center-section">
+      <img src="dibujo-1.svg" alt="Inicio" class="icon">
+      <div class="search-container">
+        <img src="dibujo-2.svg" alt="Buscar" class="search-icon">
+        <input type="text" placeholder="Buscar..." class="search-input">
+      </div>
+    </div>
+
+    <div class="right-section">
+      <div class="menu-container">
+        <img src="dibujo-3.svg" alt="Menú" class="icon" id="menuToggle">
+        <div class="dropdown-menu" id="dropdownMenu">
+          <div class="menu-item">⚙️ Configuración</div>
+          <div class="menu-item" onclick="window.location.href='perfil.html'">👤 Perfil</div>
+          <div class="menu-item">❓ Ayuda</div>
+          <div class="menu-item" onclick="showLogoutModal()">↩️ Cerrar sesión</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>Tu biblioteca</h2>
+    <div class="playlist-item">
+      <div class="playlist-thumb" style="background: purple;"></div>
+      <div class="playlist-info">
+        <span class="playlist-title">Canciones que te gustan</span>
+        <span class="playlist-subtitle">15 canciones</span>
+      </div>
+    </div>
+    <div class="playlist-item">
+      <div class="playlist-thumb" style="background: green;"></div>
+      <div class="playlist-info">
+        <span class="playlist-title">Calvos</span>
+        <span class="playlist-subtitle">Lista • Zhaié</span>
+      </div>
+    </div>
+    <div class="playlist-item">
+      <div class="playlist-thumb" style="background: teal;"></div>
+      <div class="playlist-info">
+        <span class="playlist-title">temardos</span>
+        <span class="playlist-subtitle">Lista • Spotify</span>
+      </div>
+    </div>
+    <div class="playlist-item">
+      <div class="playlist-thumb" style="background: #223;"></div>
+      <div class="playlist-info">
+        <span class="playlist-title">Fiesta 2025</span>
+        <span class="playlist-subtitle">Lista • Spotify</span>
+      </div>
+    </div>
+    <div class="playlist-item">
+      <div class="playlist-thumb" style="background: #889;"></div>
+      <div class="playlist-info">
+        <span class="playlist-title">Why always me?</span>
+        <span class="playlist-subtitle">Lista • Zhaié</span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="content">
+    <div class="mood-button">
+      <div class="circle-btn">🧠</div>
+      <span>Analiza tu mood</span>
+    </div>
+
+    <div class="voice-hint">
+      Diga "Hola Vibras" si quiere interactuar con la aplicación
+    </div>
+    
+
+    <div class="recommendation-section">
+      
+      <div class="box" style="gap: 20px;">
+        <button onclick="playSong('FLAG.mp3', `Wavin' Flag - K'naan`)" style="background: none; border: none; padding: 0; cursor: pointer;">
+          <img src="wavin.png" alt="Wavin' Flag" style="height: 100px; object-fit: cover; border-radius: 10px;">
+        </button>
+      
+        <button onclick="playSong('HAPPY_SONG.mp3', 'Happy - Pharrell Williams')" style="background: none; border: none; padding: 0; cursor: pointer;">
+          <img src="happy.png" alt="Happy" style="height: 100px; object-fit: cover; border-radius: 10px;">
+        </button>
+      </div>
+
+      <div class="box">Álbumes recomendados</div>
+      <div class="box">¿Canciones y álbumes más escuchados?</div>
+    </div>
+
+    <div class="music-player" id="musicPlayer" style="margin-top: 30px; display: none; align-items: center; gap: 15px;">
+      <audio id="player" controls style="height: 40px;">
+        <source src="FLAG.mp3" type="audio/mpeg">
+        Tu navegador no soporta el audio.
+      </audio>
+      <span id="songName" style="font-size: 18px; color: white;">Wavin' Flag - K'naan</span>
+    </div>
+    
+
+  <!-- Script -->
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    menuToggle.addEventListener("click", () => {
+      dropdownMenu.style.display = dropdownMenu.style.display === "flex" ? "none" : "flex";
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!menuToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+        dropdownMenu.style.display = "none";
+      }
+    });
+
+    function showLogoutModal() {
+      document.getElementById("dropdownMenu").style.display = "none";
+      document.getElementById("logoutModal").style.display = "flex";
+    }
+    
+    function confirmLogout(confirm) {
+      document.getElementById("logoutModal").style.display = "none";
+      if (confirm) {
+        window.location.href = "login.html";
+      } 
+      // Si dice que no, solo ocultamos el modal y ya está
+    }   
+
+  </script>
+
+  <script>
+    window.onload = () => {
+        let recognition;
+        if ('webkitSpeechRecognition' in window) {
+            recognition = new webkitSpeechRecognition();
+        } else if ('SpeechRecognition' in window) {
+            recognition = new SpeechRecognition();
+        } else {
+            alert('Tu navegador no soporta reconocimiento de voz.');
+            return;
+        }
+    
+        recognition.lang = 'es-ES';
+        recognition.continuous = true;
+        recognition.interimResults = false;
+    
+        function speak(text) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'es-ES';
+            speechSynthesis.speak(utterance);
+        }
+    
+        recognition.onresult = (event) => {
+            const transcript = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+            console.log('Escuchado:', transcript);
+    
+            if (transcript.includes("hola vibras")) {
+                speak("Hola, ¿en qué puedo ayudarle? ¿Quiere analizar su mood, buscar una canción o buscar una playlist?");
+            } else if (transcript.includes("analiza mi")) {
+                speak("Genial, ¿quiere decirnos su mood y le recomendamos canciones o lo hacemos midiendo sus latidos?");
+                // Aquí puedes añadir más funciones, como abrir una sección de análisis de emociones, cambiar pantalla, etc.
+            } else if (transcript.includes("quiero decirte mi mood")) {
+              speak("Perfecto, digame su mood entre los siguientes: enfadado, feliz o triste");
+              // Aquí puedes añadir más funciones, como abrir una sección de análisis de emociones, cambiar pantalla, etc.
+             } else if (transcript.includes("feliz")) {
+                recognition.stop();  // 🔴 Detenemos el reconocimiento momentáneamente
+                speak("Feliz");
+                
+                // Opcionalmente, reiniciar el reconocimiento después de hablar
+                setTimeout(() => {
+                  recognition.start();
+                }, 3000); // Espera 3 segundos antes de volver a escuchar
+              }
+        };
+    
+        recognition.onerror = (event) => {
+            console.error('Error en reconocimiento:', event.error);
+        };
+    
+        recognition.start();
+        console.log('Reconocimiento de voz iniciado automáticamente tras login.');
+    };
+    </script>
+    
+    <script>
+      function playSong(songFile, songTitle) {
+        const player = document.getElementById('player');
+        const musicPlayer = document.getElementById('musicPlayer');
+        const songName = document.getElementById('songName');
+      
+        player.src = songFile;               // Cambia la canción
+        songName.innerText = songTitle;       // Cambia el nombre mostrado
+        musicPlayer.style.display = 'flex';   // Muestra el reproductor
+        player.load();                        // Carga la nueva canción
+        player.play();                        // Empieza a sonar
+      }
+      
+      </script>
+
+      <script>
+        function showPlayer() {
+          const player = document.getElementById('player');
+          const musicPlayer = document.getElementById('musicPlayer');
+        
+          musicPlayer.style.display = 'flex'; // Ahora mostramos todo el reproductor
+          player.currentTime = 0;             // Reseteamos el tiempo a 0:00
+          player.play();                      // Y reproducimos
+        }
+        
+      </script>
+      
+
+
+
+  <!-- Modal de cierre de sesión -->
+  <div id="logoutModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    background-color: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 2000;">
+    <div style="background-color:#1f2227; padding:30px; border-radius:15px; text-align:center; width:300px; color:white; box-shadow:0 0 20px rgba(255,255,255,0.1);">
+      <p style="font-size:18px; margin-bottom:20px;">¿Estás seguro de que deseas cerrar sesión?</p>
+        <button onclick="confirmLogout(true)" style="margin:5px; padding:10px 20px; border:none; border-radius:10px; background:#FA7E76; color:black; font-weight:bold; cursor:pointer;">Sí</button>
+        <button onclick="confirmLogout(false)" style="margin:5px; padding:10px 20px; border:none; border-radius:10px; background:#86EDD0; color:black; font-weight:bold; cursor:pointer;">No</button>
+    </div>
+  </div>
+
+</body>
+</html>

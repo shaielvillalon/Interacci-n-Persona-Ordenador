@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=430, initial-scale=1.0" />
+  <title>Resultado Mood - Vibras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Jost';
+      background: radial-gradient(circle at center, #24272C 30%, #1c1f23 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .mobile-wrapper {
+      max-width: 430px;
+      margin: 0 auto;
+      padding: 20px;
+      margin-top: 15px;
+    }
+
+    .logo-header {
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      margin-top: 10px;
+      gap: 8px;
+      margin-top: 10px;
+      margin-left: -40px;
+    }
+
+    .logo-header img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    .highlight-v {
+      background: linear-gradient(90deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      font-size: 26px;
+      margin-right: -2px;
+      margin-top: -1px;
+    }
+
+    .app-name {
+      font-size: 22px;
+      font-weight: bold;
+      margin-left: -6px;
+      color: white;
+    }
+
+    .main-title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: 40px;
+      margin-right: 55px;
+    }
+
+    .emoji-wrapper {
+      margin: 30px auto 10px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      margin-right: 190px;
+    }
+
+    .mood-label {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      margin-right: 70px;
+    }
+
+    .message {
+      font-size: 15px;
+      color: #ccc;
+      margin: 0 20px;
+      margin-right: 90px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-wrapper" style="margin-top:-10px">
+    <div class="logo-header" style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="prototipoMovil.html" style="display: flex; align-items: center; text-decoration: none;">
+  <img src="logo2.png" alt="Logo" class="logo">
+  <span class="app-name" style="color: white; margin-left: 10px;">
+    <span class="highlight-v">V</span>ibras
+  </span>
+</a>
+      <div class="right-group" style="display: flex; align-items: center; gap: 10px;">
+        <img src="dibujo-3.svg" alt="Usuario" class="user-icon" onclick="window.location.href='perfilMovil.html'" style="cursor: pointer; margin-top:12px; width: 40px; height: 40px;">
+          <div class="menu-wrapper" style="position: relative;">
+            <span class="menu-toggle" style="font-size: 40px; color: white; cursor: default;">⋮</span>
+            <div class="menu-dropdown" style="
+        display: none;
+        position: absolute;
+        top: 38px;
+        right: 0;
+        background: #2C2F32;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,.4);
+        z-index: 1000;
+        flex-direction: column;
+      ">
+        <button onclick="window.location.href='ayuda.html'" style="background: none; border: none; color: white; padding: 12px 16px; font-family: 'Jost'; text-align: left; cursor: pointer;">Ayuda</button>
+        <button onclick="window.location.href='configuracion.html'" style="background: none; border: none; color: white; padding: 12px 16px; font-family: 'Jost'; text-align: left; cursor: pointer;">Configuración</button>
+        <button onclick="window.location.href='loginMovil.html'" style="background: none; border: none; color: white; padding: 12px 16px; font-family: 'Jost'; text-align: left; cursor: pointer;">Cerrar sesión</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Botón volver debajo -->
+<div style="text-align: right; margin-top: 10px;">
+  <button onclick="window.location.href='prototipoMovil.html'" style="
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 14px;
+  ">< Volver</button>
+</div>
+
+
+
+
+    <div class="main-title">Tu mood es...</div>
+
+    <div class="emoji-wrapper">😶</div>
+
+    <div class="mood-label" id="mood-result">Cargando...</div>
+
+    <div class="message">
+      ¡Ánimo! La mejor compañía musical para tu estado de ánimo está reproduciéndose...
+    </div>
+
+    <!-- Añade justo antes del cierre del .mobile-wrapper -->
+<div style="margin-top: 40px; text-align: left; margin-left: 20px;">
+  <p style="font-size: 16px; margin-bottom: 10px;">Música recomendada respecto a tus emociones:</p>
+  <button id="btn-explorar" style="
+    background: linear-gradient(135deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+    margin-left:80px
+  ">Explorar música</button>
+</div>
+
+
+
+
+  </div>
+
+  <script>
+    const moods = [
+  { label: "Feliz", emoji: "😊", color: "#FFD93D" },
+  { label: "Triste", emoji: "😢", color: "#6C7A89" },
+  { label: "Enojado", emoji: "😡", color: "#E74C3C" },
+  { label: "Enamorado", emoji: "💞", color: "#F0A7C9" },
+  { label: "Concentrado", emoji: "🧐", color: "#7FB3D5" },
+  { label: "Relajado", emoji: "😌", color: "#A3E4D7" },
+  { label: "Estresado", emoji: "😣", color: "#D98880" }
+];
+
+    const randomMood = moods[Math.floor(Math.random() * moods.length)];
+    let moodActual = randomMood.label;
+    document.getElementById("mood-result").textContent = randomMood.label;
+    document.querySelector(".emoji-wrapper span")?.remove();
+    const emojiSpan = document.createElement("span");
+    emojiSpan.textContent = randomMood.emoji;
+    document.querySelector(".emoji-wrapper").appendChild(emojiSpan);
+
+    
+
+    document.getElementById('btn-explorar').addEventListener('click', () => {
+  const mood = moodActual.toLowerCase();
+  // Redirige a la pantalla de la playlist (ajusta si usas navegación SPA)
+  window.location.href = `prototipoMovil.html#mood=${mood}`;
+});
+
+  </script>
+</body>
+</html>

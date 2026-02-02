@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=430, initial-scale=1.0" />
+  <title>Analiza tu Mood - Vibras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Jost';
+      background: radial-gradient(circle at center, #24272C 30%, #24272C 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .mobile-wrapper {
+      max-width: 430px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .logo-header {
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      margin-top: 15px;
+      margin-left: -40px;
+      gap: 8px;
+    }
+
+    .logo-header img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .highlight-v {
+      background: linear-gradient(90deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      font-size: 30px;
+    }
+
+    .app-name {
+      font-size: 26px;
+      font-weight: bold;
+      margin-left: -8px;
+      color: white;
+    }
+
+    .welcome {
+      font-size: 22px;
+      font-weight: bold;
+      margin-left: -60px;
+      margin-top: 50px;
+      background: linear-gradient(135deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .user-icon {
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      opacity: 0.9;
+      flex-shrink: 0;
+    }
+
+    .emoji-wrapper {
+      margin: 30px auto 20px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      margin-right: 190px;
+    }
+
+    .instruction {
+      font-size: 16px;
+      margin-bottom: 30px;
+      color: #E5DBDB;
+      margin-left: -60px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-left: -70px;
+    }
+
+
+    .option-btn {
+      background-color: #2c2F32;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-size: 15px;
+      color: white;
+      box-shadow: 0 4px 0 #111;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .option-btn:hover {
+      background-color: #383c40;
+    }
+  </style>
+</head>
+<body>
+  <div class="mobile-wrapper">
+    <div class="logo-header" style="display: flex; justify-content: space-between; align-items: center;">
+  <a href="prototipoMovil.html" style="display: flex; align-items: center; text-decoration: none;">
+  <img src="logo2.png" alt="Logo" class="logo">
+  <span class="app-name" style="color: white; margin-left: 10px;">
+    <span class="highlight-v">V</span>ibras
+  </span>
+</a>
+  <div class="right-group" style="display: flex; align-items: center; gap: 10px;">
+    <img src="dibujo-3.svg" alt="Usuario" class="user-icon" onclick="window.location.href='perfilMovil.html'" style="cursor: pointer; width: 40px; height: 40px;">
+    <div class="menu-wrapper">
+      <span class="menu-toggle" style="font-size: 40px; color: white; cursor: pointer;">⋮</span>
+      <div class="menu-dropdown" style="display:none; position:absolute; right:0; background:#2C2F32; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,.4); z-index:1000; flex-direction:column;">
+        <button style="background:none; border:none; color:white; padding:12px 16px; font-family:'Jost'; text-align:left; cursor:pointer;">Ayuda</button>
+        <button style="background:none; border:none; color:white; padding:12px 16px; font-family:'Jost'; text-align:left; cursor:pointer;">Configuración</button>
+        <button style="background:none; border:none; color:white; padding:12px 16px; font-family:'Jost'; text-align:left; cursor:pointer;">Cerrar sesión</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Botón Volver debajo del perfil y tres puntos -->
+<div style="text-align: right; margin-top: 10px;">
+  <button onclick="window.location.href='prototipoMovil.html'" style="
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    margin-right:20px;
+    cursor: pointer;
+    font-size: 14px;
+  ">< Volver</button>
+</div>
+
+    <div class="welcome">¡Bienvenido/a a analiza tu <span style="font-weight: bold;">mood</span>!</div>
+
+    <div class="emoji-wrapper">
+      <span>😊</span>
+    </div>
+
+    <div class="instruction">Indica cómo prefieres que analicemos tu mood:</div>
+
+    <div class="options">
+      <button onclick="window.location.href='analizarMood.html'" class="option-btn">📈 Pulso cardíaco </button>
+      <button onclick="window.location.href='analizarMood.html'" class="option-btn">👁️ Escaneo de retina</button>
+      <button onclick="window.location.href='analizarMood.html'" class="option-btn">🧠 Control mental</button>
+    </div>
+  </div>
+  
+
+</body>
+</html>

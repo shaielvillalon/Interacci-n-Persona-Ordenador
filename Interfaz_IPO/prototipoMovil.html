@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=430, initial-scale=1.0">
+  <title>Pantalla Móvil - Vibras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 10%;
+      background-color: #24272C;
+      font-family: 'Jost';
+    }
+
+    .mobile-wrapper {
+      width: 430px;
+      height: 100%;
+      margin: 0 auto;
+      background-color: #24272C;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #24272C; /* o usa #000000 para negro puro */
+      padding: 10px 15px;
+      gap: 10px;
+      box-sizing: border-box;
+      margin-top: 20px;
+      border-radius: 20px;
+    }
+
+    .left-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .logo {
+      width: 36px;
+      height: 36px;
+    }
+
+    .app-name {
+      font-size: 26px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .center-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      justify-content: flex-start;
+      margin-left: 30px;
+    }
+
+    .home-icon {
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      background-color: #2C2F32;
+      border-radius: 20px;
+      padding: 4px 10px;
+      border: 1px solid #B4B4B4;
+      width: 100%;
+      max-width: 160px;
+    }
+
+    .search-input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: white;
+      font-family: 'Jost';
+      font-size: 14px;
+      width: 100%;
+    }
+
+    .user-icon {
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      opacity: 0.9;
+      flex-shrink: 0;
+    }
+
+    .mobile-screen {
+      flex: 1;
+      padding: 30px 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #B4B4B4;
+      margin-bottom: 30px;
+    }
+
+    .main-btn {
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+      color: black;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .highlight-v {
+        background: linear-gradient(90deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+    }
+
+    .right-group {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-left: auto;
+    }
+    
+    .menu-dots {
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+    
+
+    .mood-section {
+      margin: 20px 20px;
+      padding-left: 20px;
+      padding-bottom: 15px;
+      background-color: #2C2F32; /* fondo gris oscuro */
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .mood-section2 {
+      margin-right: 20px;
+      margin-left: 20px;
+      margin-top: -7px;
+      padding-left: 20px;
+      padding-bottom: 15px;
+      background-color: #2C2F32; /* fondo gris oscuro */
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .mood-section3 {
+      margin-right: 0px;
+      margin-left: 20px;
+      margin-top: 20px;
+      padding-left: 20px;
+      padding-bottom: 15px;
+      background-color: #2C2F32; /* fondo gris oscuro */
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .mood-section4 {
+      margin-right: 20px;
+      margin-left: 20px;
+      margin-top: 30px;
+      padding-left: 20px;
+      padding-bottom: 15px;
+      background-color: #2C2F32; /* fondo gris oscuro */
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    .mood-section5 {
+      margin-right: 20px;
+      margin-left: 20px;
+      margin-top: 30px;
+      padding-left: 20px;
+      padding-bottom: 15px;
+      background-color: #2C2F32; /* fondo gris oscuro */
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .mood-section6 {
+      margin-right: 20px;
+      margin-left: 20px;
+      margin-top: 13px;
+      padding-left: 20px;
+      padding-bottom: 15px;
+      background-color: #2C2F32; 
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .mood-label {
+      color: white;
+      font-size: 16px;
+      margin-bottom: 8px;
+      font-weight: 400;
+    }    
+      
+
+    .mood-button {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 10px 20px;
+        font-size: 18px;
+        color: white;
+        margin-top: 10px;
+        margin-left: 20px;
+      }
+      
+      .circle-btn {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .mobile-button-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 10px auto;
+        max-width: 400px; /* o el ancho de tu contenido */
+        width: 70%;
+        display: flex;
+        background-color: #24272C;
+        z-index: 9999;
+        border-top: none;
+      }
+      
+      .mobile-btn {
+        flex: 1;
+        height: 50px;
+        margin: 5px;
+        border-radius: 10px;
+        border: none;
+        background-color: #2C2F32;
+        color: white;
+        font-size: 0.8em;
+      }
+      
+
+      .mobile-btn.selected {
+        background-color: #24272C;
+        border: 2px solid white;
+      }
+      
+      
+      .mobile-btn:active {
+        background-color: #24272C;
+      }
+      
+      .mood-gradient {
+        background: linear-gradient(90deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+      }
+      
+      .mood-inner-box {
+        background-color: #24272C;
+        border-radius: 12px;
+        margin-right: 20px;
+        
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .mood-inner-box-button {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        background-color: #43474D;
+        border: none;
+        border-radius: 12px;
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.2s;
+      }
+
+      .mood-inner-box-button2 {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px;
+        background-color: #2C2F32;
+        border: none;
+        border-radius: 12px;
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.2s;
+      }
+      
+      .mood-inner-box-button:hover {
+        background-color: #24272C;
+      }
+      
+      .mood-inner-box-button2:hover {
+        background-color: #2C2F32;
+      }
+
+      .pantalla {
+        display: none;
+      }
+      
+      .pantalla.visible {
+        display: block;
+      }
+
+      .playlist-section {
+      margin: 20px;
+    }
+
+    .playlist-title {
+      font-size: 16px;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .playlist-title2 {
+      font-size: 16px;
+      margin-top: 40px;
+      margin-bottom: 10px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #FA7E76, #FBD156, #86EDD0, #F0A7C9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .playlist-button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      border: none;
+      background: #2C2F32;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+
+    .playlist-button img {
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+    }
+
+    .playlist-button:hover {
+      background-color: #3a3f45;
+    }
+
+    .playlist-cover {
+      width: 50px;
+      height: 50px;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+
+    /* --- Historial reciente --- */
+  #lista-historial {
+    margin: 0 30px;          /* separación lateral del bloque completo */
+  }
+
+  .historial-item {
+    display: block;
+    width: 100%;             /* ocupa todo el contenedor #lista-historial */
+    padding: 14px 18px;      /* ↑ alto = padding; ajústalo a tu gusto */
+    margin-bottom: 8px;      /* separación entre canciones */
+    background-color: #1e1f21;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 16px;         /* tamaño de la letra */
+    line-height: 1.2;        /* separación vertical del texto */
+    box-sizing: border-box;  /* el padding cuenta dentro del width */
+  } 
+
+  /* --- menú de los tres puntos --- */
+.menu-wrapper          { position: relative; }
+.menu-toggle           { color:#fff;font-size:36px;cursor:pointer;user-select:none; }
+.menu-dropdown         {
+  position:absolute;
+  top:40px;            /* separa del icono */
+  right:0;
+  display:none;        /* se muestra con la clase .show */
+  flex-direction:column;
+  width:150px;
+  background:#2C2F32;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,.4);
+  z-index:1000;
+}
+.menu-dropdown button  {
+  background:transparent;
+  border:none;
+  color:#fff;
+  text-align:left;
+  padding:12px 16px;
+  font-family:'Jost';
+  font-size:15px;
+  cursor:pointer;
+}
+.menu-dropdown button:hover { background:#3a3f45; }
+
+/* visible */
+.menu-dropdown.show    { display:flex; }
+
+/* ---- Modal logout ---- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: none;                /* se hace flex con .show */
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.modal-overlay.show { display: flex; }
+
+.modal-box {
+  background: #2C2F32;
+  padding: 24px 28px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.45);
+  text-align: center;
+  color: #fff;
+  width: 90%;
+  max-width: 320px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+.modal-actions button {
+  flex: 1;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Jost';
+  font-size: 15px;
+  cursor: pointer;
+}
+#btn-cancel      { background:#43474D; color:#fff; }
+#btn-confirm     { background:#FA7E76; color:#000; }  /* gradiente simplificado */
+#btn-cancel:hover{ background:#3a3f45; }
+#btn-confirm:hover{ filter: brightness(1.1); }
+
+/* Interruptor tipo switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 24px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #777;
+  transition: .4s;
+  border-radius: 24px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #FBD156;
+}
+input:checked + .slider:before {
+  transform: translateX(21px);
+}
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <!-- Pantalla Inicio -->
+  <div id="pantalla-inicio" class="pantalla visible">
+    <div class="mobile-wrapper">
+      <div class="header-bar">
+        <a href="prototipoMovil.html" style="display: flex; align-items: center; text-decoration: none;">
+  <div class="left-group">
+    <img src="logo2.png" alt="Logo" class="logo">
+    <span class="app-name"><span class="highlight-v">V</span>ibras</span>
+  </div>
+</a>
+
+
+        <div class="right-group">
+          <span id="nombre-usuario" style="color:white; font-size: 16px;">ombre</span>
+          <img src="dibujo-3.svg" alt="Usuario" class="user-icon" onclick="window.location.href='perfilMovil.html'">
+          <div class="menu-wrapper">
+            <span class="menu-toggle">⋮</span>
+            <div class="menu-dropdown">
+              <button data-action="help">Ayuda</button>
+              <button data-action="settings">Configuración</button>
+              <button data-action="logout">Cerrar sesión</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="mood-section">
+        <p class="mood-label mood-gradient">Recomendaciones respecto a tus emociones</p>
+        <div class="mood-inner-box">
+          <button class="mood-inner-box-button" onclick="window.location.href='moodMovil.html'">
+            <div class="circle-btn">🧠</div>
+            <span>Analiza tu mood</span>
+          </button>
+        </div>
+      </div>
+      <div class="mood-section2">
+        <p class="mood-label">Recomendaciones respecto a tu ubicación</p>
+        <div class="mood-inner-box">
+          <button class="mood-inner-box-button" onclick="window.location.href='viajeMovil.html'">
+            <div class="circle-btn">📍</div>
+            <span>Modo viaje</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mood-section6">
+        <p class="mood-label" style="font-weight: bold;"> 🎤 ¿Quieres interactuar con voz? 🎤</p>
+        <div class="mood-inner-box">
+          <button class="mood-inner-box-button2">
+            <span>DIGA:  "HOLA VIBRAS"</span>
+          </button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- Pantalla Buscar -->
+  <div id="pantalla-buscar" class="pantalla">
+    <div class="mobile-wrapper">
+      <div class="header-bar">
+        <a href="prototipoMovil.html" style="display: flex; align-items: center; text-decoration: none;">
+  <div class="left-group">
+    <img src="logo2.png" alt="Logo" class="logo">
+    <span class="app-name"><span class="highlight-v">V</span>ibras</span>
+  </div>
+</a>
+
+        <div class="right-group">
+          <span id="nombre-usuario" style="color:white; font-size: 16px;">Tu_nombre</span>
+          <img src="dibujo-3.svg" alt="Usuario" class="user-icon" onclick="window.location.href='perfilMovil.html'">
+          <div class="menu-wrapper">
+      <span class="menu-toggle">⋮</span>
+      <div class="menu-dropdown">
+        <button data-action="help">Ayuda</button>
+        <button data-action="settings">Configuración</button>
+        <button data-action="logout">Cerrar sesión</button>
+      </div>
+    </div>
+        </div>
+      </div>
+      <div class="mood-section3">
+  <div style="
+    display: flex;
+    align-items: center;
+    background-color: #2a2d34;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #888;
+    margin-top: 20px;
+    width: 90%;
+  ">
+    <img src="dibujo-2.svg" alt="Buscar" style="width: 20px; height: 20px; margin-right: 10px;">
+    <input type="text" placeholder="Busca algo..." class="search-input" 
+      style="
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        font-size: 15px;
+        width: 100%;
+      " />
+  </div>
+</div>
+
+<div id="resultado-canciones" style="margin-top: 20px; text-align: left;"></div>
+
+<div id="historial-canciones" style="margin-top: 40px; text-align: left;">
+  <p style="color: #B4B4B4; font-weight: bold; margin-left:30px;">Historial reciente</p>
+  <div id="lista-historial"></div>
+
+  <button id="btn-borrar-historial" style="
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  background-color: #FA7E76;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Jost';
+  font-size: 14px;
+">
+  Borrar historial
+</button>
+
+
+</div>
+
+
+
+    </div>
+  </div>
+
+  <div id="pantalla-chat" class="pantalla">
+    <div class="mobile-wrapper">
+      <div class="header-bar">
+        <a href="prototipoMovil.html" style="display: flex; align-items: center; text-decoration: none;">
+  <div class="left-group">
+    <img src="logo2.png" alt="Logo" class="logo">
+    <span class="app-name"><span class="highlight-v">V</span>ibras</span>
+  </div>
+</a>
+
+        <div class="right-group">
+          <span id="nombre-usuario" style="color:white; font-size: 16px;">Tu_nombre</span>
+          <img src="dibujo-3.svg" alt="Usuario" class="user-icon" onclick="window.location.href='perfilMovil.html'">
+          <div class="menu-wrapper">
+      <span class="menu-toggle">⋮</span>
+      <div class="menu-dropdown">
+        <button data-action="help">Ayuda</button>
+        <button data-action="settings">Configuración</button>
+        <button data-action="logout">Cerrar sesión</button>
+      </div>
+    </div>
+        </div>
+      </div>
+
+      <div class="mood-section4">
+        <p class="mood-label">Te recomendamos música dependiendo del sonido ambiente</p>
+        <div class="mood-inner-box">
+          <button class="mood-inner-box-button" onclick="window.location.href='escuchandoAmbiente.html'">
+            <div class="circle-btn">🎵</div>
+            <span>Mood del mundo</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mood-section5">
+        <p class="mood-label">Capta la canción que suena</p>
+        <div class="mood-inner-box">
+          <button class="mood-inner-box-button" onclick="window.location.href='escuchandoCancion.html'">
+            <div class="circle-btn">🎵</div>
+            <span>Nuestro Shazam integrado</span>
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="pantalla-perfil" class="pantalla">
+    <div class="mobile-wrapper">
+      <div class="header-bar">
+        <a href="prototipoMovil.html" style="display: flex; align-items: center; text-decoration: none;">
+  <div class="left-group">
+    <img src="logo2.png" alt="Logo" class="logo">
+    <span class="app-name"><span class="highlight-v">V</span>ibras</span>
+  </div>
+</a>
+
+        <div class="right-group">
+          <span id="nombre-usuario" style="color:white; font-size: 16px;">Tu_nombre</span>
+          <img src="dibujo-3.svg" alt="Usuario" class="user-icon" onclick="window.location.href='perfilMovil.html'">
+          <div class="menu-wrapper">
+      <span class="menu-toggle">⋮</span>
+      <div class="menu-dropdown">
+        <button data-action="help">Ayuda</button>
+        <button data-action="settings">Configuración</button>
+        <button data-action="logout">Cerrar sesión</button>
+      </div>
+    </div>
+        </div>
+      </div>
+
+      <div class="playlist-section">
+
+        <div class="playlist-title">Tus playlists</div>
+        <button class="playlist-button" onclick="abrirPlaylist('Liked Songs')"><img src="playlist1.jpg" alt="Liked Songs">Liked Songs</button>
+<button class="playlist-button" onclick="abrirPlaylist('Mix de los 2000')"><img src="playlist3.jpg" alt="Décadas">Mix de los 2000</button>
+
+        <div class="playlist-title2">Playlist recomendadas</div>
+        <button class="playlist-button" onclick="abrirPlaylist('Salamanca')"><img src="salamanca.jpg" alt="Salamanca;">Salamanca</button>
+        <button class="playlist-button" onclick="abrirPlaylist('Feliz')"><img src="felizplay.jpg" alt="Feliz">Feliz</button>
+<button class="playlist-button" onclick="abrirPlaylist('Triste')"><img src="tristeplay.jpg" alt="Triste">Triste</button>
+<button class="playlist-button" onclick="abrirPlaylist('Enojado')"><img src="enojadoplay.jpg" alt="Enojado">Enojado</button>
+<button class="playlist-button" onclick="abrirPlaylist('Estresado')"><img src="estresadoplay.jpg" alt="Estresado">Estresado</button>
+<button class="playlist-button" onclick="abrirPlaylist('Enamorado')"><img src="enamoradoPlay.jpg" alt="Enamorado">Enamorado</button>
+<button class="playlist-button" onclick="abrirPlaylist('Concentrado')"><img src="concentradoplay.jpg" alt="Concentrado">Concentrado</button>
+<button class="playlist-button" onclick="abrirPlaylist('Relajado')" style="margin-bottom: 100px;"><img src="relajadoplay.jpg" alt="Relajado;">Relajado</button>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div id="reproductor" style="
+  display: none;
+  position: fixed;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #43474D;
+  color: white;
+  width: 90%;
+  max-width: 340px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 3px 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+">
+
+
+<span id="titulo-cancion" style="font-size: 14px; flex: 1; text-align: left;"></span>
+<button onclick="toggleAudio()" style="background: none; border: none; color: white; font-size: 18px; cursor: pointer;">⏸</button>
+  <button onclick="cancionAleatoria('prev')" style="background: none; border: none; color: white; font-size: 18px; cursor: pointer;">⏮️</button>
+
+<button onclick="cancionAleatoria('next')" style="background: none; border: none; color: white; font-size: 18px; cursor: pointer;">⏭️</button>
+
+
+</div>
+
+
+
+  <!-- Barra de navegación -->
+  <div class="mobile-button-bar">
+    <button class="mobile-btn selected" onclick="cambiarPantalla(0)">
+      <img src="dibujo-1.svg" alt="Inicio" style="width: 25px; height: 25px;" />
+    </button>      
+    <button class="mobile-btn" onclick="cambiarPantalla(1)">
+      <img src="dibujo-2.svg" alt="Buscar" style="width: 25px; height: 25px;" />
+    </button>  
+    <button class="mobile-btn" onclick="cambiarPantalla(2)">
+      <img src="dibujo-5.svg" alt="Chat" style="width: 25px; height: 25px;" />
+    </button>  
+    <button class="mobile-btn" onclick="cambiarPantalla(3)">
+      <img src="dibujo-6.svg" alt="Perfil" style="width: 25px; height: 25px;" />
+    </button>  
+  </div>
+
+  <!-- ­­­­­Modal de confirmación -->
+<div id="modal-logout" class="modal-overlay">
+  <div class="modal-box">
+    <p>¿Seguro que quieres cerrar sesión?</p>
+    <div class="modal-actions">
+      <button id="btn-cancel">Cancelar</button>
+      <button id="btn-confirm">Cerrar sesión</button>
+    </div>
+  </div>
+</div>
+
+  <div id="pantalla-ayuda" class="pantalla">
+  <div class="mobile-wrapper">
+    <div class="header-bar">
+      <a href="prototipoMovil.html" style="display: flex; align-items: center; text-decoration: none;">
+  <div class="left-group">
+    <img src="logo2.png" alt="Logo" class="logo">
+    <span class="app-name"><span class="highlight-v">V</span>ibras</span>
+  </div>
+</a>
+
+      <div class="right-group">
+        <span id="nombre-usuario" style="color:white; font-size: 16px;">Tu_nombre</span>
+        <img src="dibujo-3.svg" alt="Usuario" class="user-icon">
+        <div class="menu-wrapper">
+          <span class="menu-toggle">⋮</span>
+          <div class="menu-dropdown">
+            <button data-action="help">Ayuda</button>
+            <button data-action="settings">Configuración</button>
+            <button data-action="logout">Cerrar sesión</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin: 0px 20px 0; text-align: right;">
+  <button onclick="cambiarPantalla(0)" style="
+    padding: 6px 6px;
+    border: 1px solid white;
+    border-radius: 12px;
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+  ">
+    < Volver
+  </button>
+</div>
+
+
+    <div class="mood-section">
+      <p class="mood-label mood-gradient" style="font-size:18px; text-align:center;">¿Tienes algún problema?</p>
+      <div style="display: flex; align-items: center; background-color: #2a2d34; padding: 10px 12px; border-radius: 10px; border: 1px solid #888; margin: 0 20px;">
+        <img src="dibujo-2.svg" alt="Buscar" style="width: 20px; height: 20px; margin-right: 10px;">
+        <input type="text" placeholder="Introduce tu pregunta..." class="search-input" style="background-color: transparent; border: none; outline: none; color: white; font-size: 15px; width: 100%;" />
+      </div>
+    </div>
+
+    <div class="mood-section">
+      <p class="mood-label" style="margin-left:0px;">FAQ</p>
+      <button class="mood-inner-box-button" style="margin-bottom: 10px; margin-left:-10px;"><span>¿Qué dispositivos son compatibles?</span></button>
+      <button class="mood-inner-box-button" style="margin-bottom: 10px; margin-left:-10px;"><span>¿Es segura mi información personal?</span></button>
+      <button class="mood-inner-box-button" style="margin-bottom: 10px; margin-left:-10px;"><span>¿Es necesario crear playlists manualmente?</span></button>
+      <button class="mood-inner-box-button" style="margin-left:-10px;"><span>¿Cuánto tarda la app en adaptarse a mis gustos?</span></button>
+    </div>
+  </div>
+
+  
+
+</div>
+
+
+<div id="pantalla-configuracion" class="pantalla">
+  <div class="mobile-wrapper">
+    <div class="header-bar">
+      <a href="prototipoMovil.html" style="display: flex; align-items: center; text-decoration: none;">
+  <div class="left-group">
+    <img src="logo2.png" alt="Logo" class="logo">
+    <span class="app-name"><span class="highlight-v">V</span>ibras</span>
+  </div>
+</a>
+
+      <div class="right-group">
+        <span id="nombre-usuario" style="color:white; font-size: 16px;">Tu_nombre</span>
+        <img src="dibujo-3.svg" alt="Usuario" class="user-icon">
+        <div class="menu-wrapper">
+          <span class="menu-toggle">⋮</span>
+          <div class="menu-dropdown">
+            <button data-action="help">Ayuda</button>
+            <button data-action="settings">Configuración</button>
+            <button data-action="logout">Cerrar sesión</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 0px 20px; text-align:right; margin-right:20px">
+        <button onclick="cambiarPantalla(0)" style="
+          width: 20%;
+          padding: 6px;
+          border: 1px solid white;
+          background-color: transparent;
+          border-radius: 12px;
+          color: white;
+          font-weight: bold;
+          font-size: 12px;
+          cursor: pointer;
+        ">
+         < Volver
+        </button>
+      </div>
+
+    <div class="mood-section">
+      <h2 style="color: white; font-size: 20px; margin-bottom: 20px;">Configuración</h2>
+
+      <div class="mood-inner-box-button2" style="justify-content: space-between; width:85%; margin-bottom:20px;">
+        <span>Autoplay</span>
+        <label class="switch">
+          <input type="checkbox" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="mood-inner-box-button2" style="justify-content: space-between; width:85%; margin-bottom:20px;">
+        <span>Calidad de la música</span>
+        <select style="background:#43474D; color:white; border:none; padding:6px 10px; border-radius:6px;">
+          <option>Alta</option>
+          <option>Media</option>
+          <option>Baja</option>
+        </select>
+      </div>
+
+      <div class="mood-inner-box-button2" style="justify-content: space-between; width:85%; margin-bottom:20px;">
+        <span>Ubicación</span>
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="mood-inner-box-button2" style="justify-content: space-between; width:85%; margin-bottom:20px;">
+        <span>Ruido ambiente</span>
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div id="pantalla-playlist" class="pantalla">
+  <div class="mobile-wrapper">
+    
+    
+    <div class="header-bar">
+      <a href="prototipoMovil.html" style="display: flex; align-items: center; text-decoration: none;">
+  <div class="left-group">
+    <img src="logo2.png" alt="Logo" class="logo">
+    <span class="app-name"><span class="highlight-v">V</span>ibras</span>
+  </div>
+</a>
+
+      <div class="right-group">
+        <span id="nombre-usuario" style="color:white; font-size: 16px;">Tu_nombre</span>
+        <img src="dibujo-3.svg" alt="Usuario" class="user-icon">
+        <div class="menu-wrapper">
+          <span class="menu-toggle">⋮</span>
+          <div class="menu-dropdown">
+            <button data-action="help">Ayuda</button>
+            <button data-action="settings">Configuración</button>
+            <button data-action="logout">Cerrar sesión</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 0px 20px; text-align:right; margin-right:20px">
+        <button onclick="cambiarPantalla(3)" style="
+          width: 20%;
+          padding: 6px;
+          border: 1px solid white;
+          background-color: transparent;
+          border-radius: 12px;
+          color: white;
+          font-weight: bold;
+          font-size: 12px;
+          cursor: pointer;
+        ">
+         < Volver
+        </button>
+      </div>
+
+    <div style="padding: 20px;">
+      <h2 id="titulo-playlist" style="color: white; margin-bottom: 20px;"></h2>
+      <ul id="lista-canciones-playlist" style="list-style: none; padding: 0;"></ul>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+    
+
+
+
+  <script defer>
+
+    function logout () {
+      localStorage.removeItem('vibras-auth');      // bandera de sesión
+  // localStorage.removeItem('vibras-user');   // si la usas
+  // localStorage.removeItem('vibras-historial'); // si quieres vaciar historial
+      window.location.href = 'loginMovil.html';         // vuelve al login
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+    /* ---- referencias del modal ---- */
+const modal  = document.getElementById('modal-logout');
+const btnOK  = document.getElementById('btn-confirm');
+const btnNO  = document.getElementById('btn-cancel');
+
+document.getElementById('btn-borrar-historial').addEventListener('click', () => {
+  localStorage.removeItem('vibras-historial');
+  historial.innerHTML = ''; // limpia el DOM
+});
+
+btnOK.addEventListener('click', () => logout());
+btnNO.addEventListener('click', () => modal.classList.remove('show'));
+
+const historialGuardado = JSON.parse(localStorage.getItem('vibras-historial') || '[]');
+historialGuardado.forEach(nombre => {
+  const div = document.createElement('div');
+  div.textContent = nombre;
+  div.className = 'historial-item';
+  historial.appendChild(div);
+});
+
+
+
+/* --- menú flotante de los 3 puntos --- */
+document.addEventListener('click', e => {
+  // 1) abrir/cerrar al pulsar el icono
+  if (e.target.classList.contains('menu-toggle')) {
+    const drop = e.target.nextElementSibling;
+    drop.classList.toggle('show');
+    return;  // evita que se cierre inmediatamente
+  }
+
+  // 2) ejecutar una opción
+  if (e.target.closest('.menu-dropdown button')) {
+    const action = e.target.dataset.action;
+    switch (action) {
+      case 'help':
+        cambiarPantalla(4);
+        break;
+      case 'settings':
+        cambiarPantalla(5);
+        break;
+      case 'logout':
+        // aquí tu lógica real de cierre de sesión
+        modal.classList.add('show'); 
+        // window.location.href = 'login.html';
+        break;
+    }
+  }
+
+  // 3) cerrar cualquier menú abierto si se hace clic fuera
+  document.querySelectorAll('.menu-dropdown.show')
+          .forEach(m => m.classList.remove('show'));
+
+
+  });
+
+});
+</script>
+
+
+  <script>
+    const botones = document.querySelectorAll('.mobile-btn');
+    const pantallas = [
+      document.getElementById('pantalla-inicio'),
+      document.getElementById('pantalla-buscar'),
+      document.getElementById('pantalla-chat'),
+      document.getElementById('pantalla-perfil'),
+      document.getElementById('pantalla-ayuda'),
+      document.getElementById('pantalla-configuracion'),
+      document.getElementById('pantalla-playlist') 
+    ];
+
+    function cambiarPantalla(index) {
+  pantallas.forEach((p, i) => {
+    p.classList.toggle('visible', i === index);
+  });
+  botones.forEach((b, i) => {
+    b.classList.toggle('selected', i === index);
+  });
+
+  // Oculta la barra si es pantalla de ayuda
+  const barra = document.querySelector('.mobile-button-bar');
+  if (index === 4 || index === 5) {
+    barra.style.display = 'none';
+  } else {
+    barra.style.display = 'flex';
+  }
+}
+
+  </script>
+
+
+  <script>
+
+    const STORAGE_KEY = 'vibras-historial'; 
+
+  const canciones = [
+    { nombre: "Wavin Flag", archivo: "FLAG.mp3" },
+    { nombre: "Resting Grounds", archivo: "Hollow Knight OST - Resting Grounds.mp3" },
+    { nombre: "Zelda & Chill", archivo: "Mikel Lofi-Zelda & chill Ocarina of Time Remix.mp3" },
+    { nombre: "Space Song", archivo: "Beach House - Space Song.mp3" },
+    { nombre: "I Just Called To Say I Love You", archivo: "Stevie Wonder -I Just Called To Say I Love You.mp3" },
+    { nombre: "Bailando por ahi", archivo: "bailandoporahi.mp3" },
+    { nombre: "Happy", archivo: "happy" },
+    { nombre: "Back to friends", archivo: "backtofriends.mp3" },
+    { nombre: "Beautiful Things", archivo: "beautifulthings.mp3" },
+    { nombre: "Another Love", archivo: "anotherlove.mp3" },
+  ];
+
+  const inputBuscar = document.querySelector('#pantalla-buscar input');
+  const contenedorResultados = document.getElementById('resultado-canciones');
+
+  const historial = document.getElementById('lista-historial');
+
+  inputBuscar.addEventListener('input', () => {
+    const texto = inputBuscar.value.toLowerCase().trim();
+    contenedorResultados.innerHTML = '';
+
+    if (texto.length === 0) return;
+
+    const filtradas = canciones.filter(c => c.nombre.toLowerCase().includes(texto));
+    
+    if (filtradas.length === 0) {
+      contenedorResultados.innerHTML = '<p style="color: gray;">No se encontraron coincidencias.</p>';
+    } else {
+      filtradas.forEach(c => {
+        const boton = document.createElement('button');
+        boton.textContent = c.nombre;
+        boton.style.cssText = `
+          display: block;
+          width: 90%;
+          padding: 10px;
+          margin-bottom: 10px;
+          margin-left: 30px;
+          background-color: #2C2F32;
+          color: white;
+          border: none;
+          border-radius: 10px;
+          text-align: left;
+        `;
+        boton.onclick = () => {
+  if (audioActual) {
+    audioActual.pause();
+    audioActual = null;
+  }
+
+  audioActual = new Audio(c.archivo);
+  audioActual.play();
+
+  document.getElementById('reproductor').style.display = 'flex';
+  document.getElementById('titulo-cancion').textContent = c.nombre;
+  btnPlayPause = document.querySelector('#reproductor button');
+
+  btnPlayPause.textContent = '⏸';
+
+  agregarAHistorial(c.nombre);
+};
+
+        contenedorResultados.appendChild(boton);
+      });
+    }
+  });
+
+  function agregarAHistorial(nombre) {
+  let actual = JSON.parse(localStorage.getItem('vibras-historial') || '[]');
+
+  // Elimina duplicados si ya existe
+  actual = actual.filter(n => n.toLowerCase() !== nombre.toLowerCase());
+
+  // Añade al principio
+  actual.unshift(nombre);
+
+  // Limita a 4 elementos
+  if (actual.length > 4) actual = actual.slice(0, 4);
+
+  // Guarda
+  localStorage.setItem('vibras-historial', JSON.stringify(actual));
+
+  // Limpia y vuelve a dibujar
+  historial.innerHTML = '';
+  actual.forEach(n => {
+    const div = document.createElement('div');
+    div.textContent = n;
+    div.className = 'historial-item';
+
+    // 🔊 Aquí le añadimos el evento para reproducir
+    div.onclick = () => {
+      const cancion = canciones.find(c => c.nombre.toLowerCase() === n.toLowerCase());
+      if (cancion) {
+        if (audioActual) audioActual.pause();
+        audioActual = new Audio(cancion.archivo);
+        audioActual.play();
+
+        document.getElementById('reproductor').style.display = 'flex';
+        document.getElementById('titulo-cancion').textContent = cancion.nombre;
+        btnPlayPause = document.querySelector('#reproductor button');
+        btnPlayPause.textContent = '⏸';
+      }
+    };
+
+    historial.appendChild(div);
+  });
+}
+
+
+
+</script>
+
+
+<script>
+  window.addEventListener('load', () => {
+    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+      alert('Tu navegador no soporta reconocimiento de voz.');
+      return;
+    }
+
+    const hash = window.location.hash;
+  if (hash.startsWith('#mood=')) {
+    const mood = decodeURIComponent(hash.replace('#mood=', ''));
+    abrirPlaylist(mood.charAt(0).toUpperCase() + mood.slice(1));
+  }
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'es-ES';
+    recognition.continuous = true;
+    recognition.interimResults = false;
+
+    recognition.onresult = function(event) {
+      const transcript = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+      console.log("Escuchado:", transcript);
+      if (transcript.includes("hola vibras")) {
+        hablar("Hola, ¿en qué puedo ayudarte? Si quieres usar una función de esta pantalla diga uno, si no, diga dos");
+      } else if (transcript.includes("1") || transcript.includes("uno")) {
+        hablar("¿Quieres usar la funcionalidad de analizar tu mood o el modo viaje?.");
+      } else if (transcript.includes("Analiza") || transcript.includes("Quiero mood") || transcript.includes("mood")) {
+        hablar("Perfeto, vamos a ello.");
+        setTimeout(() => {
+          window.location.href = 'analizarMood.html';
+        }, 2000); // espera 2 segundos
+      }
+    };
+
+    recognition.onerror = function(event) {
+      console.error("Error de reconocimiento:", event.error);
+      if (event.error === "not-allowed" || event.error === "service-not-allowed") {
+        alert("Permiso de micrófono denegado. Por favor, actívalo.");
+      }
+    };
+
+    recognition.onend = function() {
+      // Reinicia si se detuvo inesperadamente
+      recognition.start();
+    };
+
+    function hablar(texto) {
+      const utterance = new SpeechSynthesisUtterance(texto);
+      utterance.lang = 'es-ES';
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Inicia la escucha
+    recognition.start();
+  });
+
+
+  let audioActual = null;
+let btnPlayPause = null;
+let spanTitulo = null;
+
+function toggleAudio() {
+  if (!audioActual) return;
+  if (audioActual.paused) {
+    audioActual.play();
+    btnPlayPause.textContent = '⏸';
+  } else {
+    audioActual.pause();
+    btnPlayPause.textContent = '▶️';
+  }
+}
+
+
+const playlists = {
+    "Liked Songs": [
+    { nombre: "Tears in the rain", archivo: "tearsintherain.mp3" },
+    { nombre: "Another Love", archivo: "anotherlove.mp3" }
+],
+    "Mix de los 2000": [
+    {nombre: "Bailando por ahi", archivo:"bailandoporahi.mp3"},
+    {nombre: "Wavin Flag", archivo: "FLAG.mp3"}
+],
+    "Feliz": [
+  { nombre: "Happy", archivo: "happy.mp3" },
+  { nombre: "Wavin Flag", archivo: "FLAG.mp3" },
+  { nombre: "Bailando por ahí", archivo: "bailandoporahi.mp3" }
+],
+    "Triste": [
+  { nombre: "Another Love", archivo: "anotherlove.mp3" },
+  { nombre: "Beautiful Things", archivo: "beautifulthings.mp3" },
+  { nombre: "Back to friends", archivo: "backtofriends.mp3" },
+  { nombre: "Tears in the rain", archivo: "tearsintherain.mp3"}
+],
+    "Estresado": [
+  { nombre: "Awake", archivo: "Awake.mp3" },
+  { nombre: "El primer dia del resto de mi vida", archivo: "elprimerdia.mp3" }
+],
+    "Enamorado": [
+  { nombre: "ADMV", archivo: "ADMV.mp3" },
+  { nombre: "Yo te esperaré", archivo: "yoteesperare.mp3" },
+  { nombre: "Me voy enamorando", archivo: "mevoyenamorando.mp3" }
+],
+"Concentrado": [
+  { nombre: "Titanium", archivo: "titanium.mp3" },
+  { nombre: "Desde mis ojos", archivo: "desdemisojos.mp3" },
+  { nombre: "7 lagrimas", archivo: "lagriimas.mp3" }
+],
+"Relajado": [
+  { nombre: "Me voy", archivo: "mevoy.mp3" },
+  { nombre: "Rosas", archivo: "rosas.mp3"}
+],
+"Salamanca": [
+  { nombre: "La clara", archivo: "laclara.mp3" },
+  { nombre: "Los ojos de mi charra", archivo: "losojos.mp3"}
+],
+  };
+
+  function abrirPlaylist(nombre) {
+  const titulo = document.getElementById('titulo-playlist');
+  const lista = document.getElementById('lista-canciones-playlist');
+
+  titulo.textContent = nombre;
+  lista.innerHTML = "";
+
+  const canciones = playlists[nombre] || [];
+
+  if (canciones.length === 0) {
+    lista.innerHTML = "<li style='color: #ccc;'>Esta playlist está vacía.</li>";
+  } else {
+    canciones.forEach(c => {
+      const li = document.createElement('li');
+      li.textContent = "🎵 " + c.nombre;
+      li.style.padding = "12px";
+      li.style.marginBottom = "8px";
+      li.style.backgroundColor = "#2C2F32";
+      li.style.borderRadius = "10px";
+      li.style.color = "white";
+      li.style.cursor = "pointer";
+
+      li.onclick = () => {
+        if (audioActual) {
+          audioActual.pause();
+          audioActual = null;
+        }
+
+        audioActual = new Audio(c.archivo);
+        audioActual.play();
+
+        document.getElementById('reproductor').style.display = 'flex';
+        document.getElementById('titulo-cancion').textContent = c.nombre;
+        btnPlayPause = document.querySelector('#reproductor button');
+        btnPlayPause.textContent = '⏸';
+      };
+
+      lista.appendChild(li);
+    });
+  }
+
+  cambiarPantalla(6);
+}
+
+function cancionAleatoria(direccion) {
+  if (canciones.length === 0) return;
+
+  const randomIndex = Math.floor(Math.random() * canciones.length);
+  const cancion = canciones[randomIndex];
+
+  if (audioActual) {
+    audioActual.pause();
+    audioActual = null;
+  }
+
+  audioActual = new Audio(cancion.archivo);
+  audioActual.play();
+
+  document.getElementById('reproductor').style.display = 'flex';
+  document.getElementById('titulo-cancion').textContent = cancion.nombre;
+  btnPlayPause = document.querySelector('#reproductor button[onclick="toggleAudio()"]');
+  btnPlayPause.textContent = '⏸';
+
+  agregarAHistorial(cancion.nombre);
+}
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
